@@ -11,6 +11,7 @@ int main(int ac, char *av[])
 	char *buf;
 	ssize_t nchar;
 	size_t n;
+	char *bufc;
 
 	(void)ac, (void)av;
 
@@ -37,6 +38,21 @@ int main(int ac, char *av[])
 				_putchar('\n');
 				return (EXIT_FAILURE);
 			}
+		}
+
+		if (_strcmp(buf, "exit\n") == 0)
+		{
+			free(buf);
+			return (EXIT_SUCCESS);
+		}
+
+		bufc = malloc(sizeof(char) * (nchar + 1));
+		if (bufc == NULL)
+		{
+			free(buf);
+			free(bufc);
+			perror("Buffer copying failed");
+			return (EXIT_FAILURE);
 		}
 	}
 
