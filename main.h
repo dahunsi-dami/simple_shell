@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 void _write(char *s);
+int _putchar(char c);
 int main(int ac, char *av[]);
 
 #endif
