@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 
-int main(int ac, char **av[]);
+void _write(char *s);
+int main(int ac, char *av[]);
 
 #endif

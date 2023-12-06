@@ -1,6 +1,4 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdio.h>
 /**
  * main - a function that prints a dollar sign.
  * @ac: the number of arguments passed.
@@ -10,10 +8,9 @@
  */
 int main(int ac, char *av[])
 {
-	char *envp[] = {"PATH=/bin", (char *)0};
-	(void)ac;
+	(void)ac, (void)av;
 
-	execve(av[1], av, envp);
+	_write("$ ");
 
 	return (0);
 }
