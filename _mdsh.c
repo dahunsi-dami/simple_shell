@@ -21,6 +21,23 @@ int main(int ac, char *av[])
 		nchar = getline(&buf, &n, stdin);
 
 		_write(buf);
+
+		if (nchar == -1)
+		{
+			if (feof(stdin))
+			{
+				_write("Exiting shell...\n");
+				free(buf);
+				return (EXIT_SUCCESS);
+			}
+			else
+			{
+				perror("Line not read\n");
+				free(buf);
+				_putchar('\n');
+				return (EXIT_FAILURE);
+			}
+		}
 	}
 
 	return (0);
