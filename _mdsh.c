@@ -54,6 +54,8 @@ int main(int ac, char *av[])
 			perror("Buffer copying failed");
 			return (EXIT_FAILURE);
 		}
+
+		_strcpy(bufc, buf);
 	}
 
 	return (0);
