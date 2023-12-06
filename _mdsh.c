@@ -10,7 +10,7 @@ int main(int ac, char *av[])
 {
 	(void)ac, (void)av;
 
-	_write("$ ");
+	_write("$ \n");
 
 	return (0);
 }
