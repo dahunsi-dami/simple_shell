@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _executecommand - executes a command using fork and execve.
+ * execute_command - executes a command using fork and execve.
  * @hargv: array of arguments for the command.
  * @envp: environment variables.
  *

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * checkcommandindirectory - Check if the command exists in a given directory.
+ * _checkcommandindirectory - Check if the command exists in a given directory.
  * @directory: The directory to search for the command.
  * @command: The command to check for.
  *
@@ -9,28 +9,29 @@
  */
 char *_checkcommandindirectory(const char *directory, const char *command)
 {
-    char *path = NULL;
-    int length = strlen(directory) + strlen(command) + 2;
+	char *path = NULL;
+	int length = strlen(directory) + strlen(command) + 2;
 
-    path = malloc(sizeof(char) * length);
-    if (path == NULL) {
-        perror("Error");
-        exit(EXIT_FAILURE);
-    }
-
-    if (directory[strlen(directory) - 1] == '/')
+	path = malloc(sizeof(char) * length);
+	if (path == NULL)
 	{
-        snprintf(path, length, "%s%s", directory, command);
-    } else
-	{
-        snprintf(path, length, "%s/%s", directory, command);
-    }
+		perror("Error");
+		exit(EXIT_FAILURE);
+	}
 
-    if (access(path, F_OK) == 0)
+	if (directory[strlen(directory) - 1] == '/')
 	{
-        return (path);
-    }
+		snprintf(path, length, "%s%s", directory, command);
+	} else
+	{
+		snprintf(path, length, "%s/%s", directory, command);
+	}
 
-    free(path);
-    return (NULL);
+	if (access(path, F_OK) == 0)
+	{
+		return (path);
+	}
+
+	free(path);
+	return (NULL);
 }
