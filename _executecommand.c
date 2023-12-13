@@ -25,7 +25,10 @@ char *_executecommand(char **hargv, char *envp[])
 	if (fd == 0)
 	{
 		if (execve(path, hargv, envp) == -1)
+		{
 			perror(hargv[0]);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	wait(NULL);
