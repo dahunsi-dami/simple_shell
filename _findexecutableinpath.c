@@ -6,7 +6,7 @@
  *
  * Return: returns the path or NULL.
  */
-char *_findexecutableinpath(char *directories[], const char *filename)
+char *_findexecutableinpath(char *directories[], char *filename)
 {
 	char *path = NULL;
 	int i;

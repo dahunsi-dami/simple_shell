@@ -27,7 +27,7 @@ char *_extractpathfromenv(char *envp[]);
 int _splitstring(char *str, char *delimiter, char ***tokens);
 int _splitpath(char *path, char ***directories);
 char *_constructfullpath(char *directory, char *filename);
-char *_findexecutableinpath(char *directories[], const char *filename);
+char *_findexecutableinpath(char *directories[], char *filename);
 void _cleanupmemory(char *path, char *directories[]);
 char *_checkcmdexists(char **argv, char *envp[]);
 int main(int argc, char *argv[], char *envp[]);

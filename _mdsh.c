@@ -44,14 +44,13 @@ int main(int argc, char *argv[], char *envp[])
 		}
 		if (_strcmp(buf, "exit\n") == 0)
 		{
-			free(buf, bufc, NULL, NULL);
+			_freememory(buf, bufc, NULL, NULL);
 			exit(EXIT_SUCCESS);
 		}
 		bufc = malloc(sizeof(char) * (nchar + 1));
 		if (bufc == NULL)
 		{
-			free(buf, bufc);
-			free(NULL, NULL);
+			_freememory(buf, bufc, NULL, NULL);
 			perror("Buffer copying failed");
 			continue;
 		}
@@ -60,8 +59,7 @@ int main(int argc, char *argv[], char *envp[])
 
 		if (hargv == NULL)
 		{
-			free(buf, bufc);
-			free(NULL, NULL);
+			_freememory(buf, bufc, NULL, NULL);
 			perror("Tokenization failed");
 			continue;
 		}
