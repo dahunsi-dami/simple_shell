@@ -38,26 +38,26 @@ int main(int ac, char *av[])
 			{
 				perror("Line not read\n");
 				_freememory(buf, bufc, NULL, NULL);
-				exit (EXIT_FAILURE);
+				exit(EXIT_FAILURE);
 			}
 		}
 
 		if (_strcmp(buf, "exit\n") == 0)
 		{
 			free(buf, bufc, NULL, NULL);
-			exit (EXIT_SUCCESS);
+			exit(EXIT_SUCCESS);
 		}
 
 		bufc = malloc(sizeof(char) * (nchar + 1));
 
 		if (bufc == NULL)
 		{
-			free(buf, bufc, NULL, NULL);		
+			free(buf, bufc, NULL, NULL);
 			perror("Buffer copying failed");
 			continue;
 		}
 
-		_strcpy(bufc, buf);	
+		_strcpy(bufc, buf);
 
 		char **hargv = _tokenizeinput(buf, delim);
 
@@ -70,7 +70,7 @@ int main(int ac, char *av[])
 
 		path = _excute_command(hargv, envp);
 
-			_freememory(buf, bufc, hargv, path);
+		_freememory(buf, bufc, hargv, path);
 	}
 	return (0);
 }
