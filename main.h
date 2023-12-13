@@ -15,8 +15,14 @@ int _putchar(char c);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_executecommand(char **hargv, char *envp[]);
-char *_checkcommandindirectory(const char *directory, const char *command);
-char *searchcommandinpath(const char *command, const char *path);
+char *_checkfileexists(const char *filename);
+char *_extractpathfromenv(char *envp[]);
+int _splitstring(char *str, char *delimiter, char ***tokens);
+int _splitpath(char *path, char ***directories);
+char *_constructfullpath(const char *directory, const char *filename);
+char *_findexecutableinpath(char *directories[], const char *filename);
+void _cleanupmemory(char *path, char *directories[]);
+char *_checkcmdexists(char **argv, char *envp[]);
 int main(int argc, char *argv[], char *envp[]);
 
 #endif
