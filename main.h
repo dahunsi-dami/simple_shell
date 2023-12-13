@@ -8,6 +8,7 @@
 void _write(char *s);
 void _prompt_user(void);
 ssize_t _readinput(int term, char **buf, size_t *n);
+char **_tokenizeinput(char *buf, const char *delim);
 void _exitshell(char *buf);
 void _freememory(char *buf, char *bufc, char **hargv, char *path);
 int _putchar(char c);
@@ -16,6 +17,6 @@ char *_strcpy(char *dest, char *src);
 char *_executecommand(char **hargv, char *envp[]);
 char *_checkcommandindirectory(const char *directory, const char *command);
 char *searchcommandinpath(const char *command, const char *path);
-int main(int ac, char *av[]);
+int main(int argc, char *argv[], char *envp[]);
 
 #endif
