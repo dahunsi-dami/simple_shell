@@ -3,60 +3,74 @@
  * main - prompts user & executes command inputted.
  * @ac: the number of arguments passed.
  * @av: a 1D array of arguments passed.
- *
- * Return: output of command executed or 0 for success.
+ * @envp: a 1D array of environment variable.
+ * Return: always success (0).
  */
 int main(int ac, char *av[])
 {
-	char *buf;
+	char *buf, *path;
 	ssize_t nchar;
 	size_t n;
 	char *bufc;
+	int term;
+	const char *deim;
 
-	(void)ac, (void)av;
+	(void)argc;
+
+	delim = "\n";
+	term = isatty(STDIN_FILENO);
 
 	while (1)
 	{
-		_write("micdre:~$ ");
+		buf = NULL;
+		bufc = NULL;
+		path = NULL;
 
-		nchar = getline(&buf, &n, stdin);
-
-		_write(buf);
+		nchar = _readinput(term, &buf, &n);
 
 		if (nchar == -1)
 		{
 			if (feof(stdin))
 			{
-				_write("Exiting shell...\n");
-				free(buf);
-				return (EXIT_SUCCESS);
+				_exitshell(buf);
 			}
 			else
 			{
 				perror("Line not read\n");
-				free(buf);
-				_putchar('\n');
-				return (EXIT_FAILURE);
+				_freememory(buf, bufc, NULL, NULL);
+				exit (EXIT_FAILURE);
 			}
 		}
 
 		if (_strcmp(buf, "exit\n") == 0)
 		{
-			free(buf);
-			return (EXIT_SUCCESS);
+			free(buf, bufc, NULL, NULL);
+			exit (EXIT_SUCCESS);
 		}
 
 		bufc = malloc(sizeof(char) * (nchar + 1));
+
 		if (bufc == NULL)
 		{
-			free(buf);
-			free(bufc);
+			free(buf, bufc, NULL, NULL);		
 			perror("Buffer copying failed");
-			return (EXIT_FAILURE);
+			continue;
 		}
 
-		_strcpy(bufc, buf);
-	}
+		_strcpy(bufc, buf);	
 
+		char **hargv = _tokenizeinput(buf, delim);
+
+		if (hargv == NULL)
+		{
+			free(buf, bufc, NULL, NULL);
+			perror("Tokenization failed");
+			continue;
+		}
+
+		path = _excute_command(hargv, envp);
+
+			_freememory(buf, bufc, hargv, path);
+	}
 	return (0);
 }
