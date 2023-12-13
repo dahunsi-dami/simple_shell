@@ -37,7 +37,7 @@ int main(int argc, char *argv[], char *envp[])
 			}
 			else
 			{
-				perror("Line not read\n");
+				perror(argv[0]);
 				_freememory(buf, bufc, NULL, NULL);
 				exit(EXIT_FAILURE);
 			}
@@ -51,16 +51,16 @@ int main(int argc, char *argv[], char *envp[])
 		if (bufc == NULL)
 		{
 			_freememory(buf, bufc, NULL, NULL);
-			perror("Buffer copying failed");
+			perror(argv[0]);
 			continue;
 		}
 		_strcpy(bufc, buf);
-		*hargv = _tokenizeinput(buf, delim);
+		hargv = _tokenizeinput(buf, delim);
 
 		if (hargv == NULL)
 		{
 			_freememory(buf, bufc, NULL, NULL);
-			perror("Tokenization failed");
+			perror(argv[0]);
 			continue;
 		}
 		path = _executecommand(hargv, envp);
