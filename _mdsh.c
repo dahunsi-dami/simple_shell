@@ -1,12 +1,13 @@
 #include "main.h"
 /**
  * main - prompts user & executes command inputted.
- * @ac: the number of arguments passed.
- * @av: a 1D array of arguments passed.
+ * @argc: the number of arguments passed.
+ * @argv: a 1D array of arguments passed.
  * @envp: a 1D array of environment variable.
+ *
  * Return: always success (0).
  */
-int main(int ac, char *av[])
+int main(int argc, char *argv[], char *envp[])
 {
 	char *buf, *path;
 	ssize_t nchar;
