@@ -15,6 +15,7 @@ int main(int argc, char *argv[], char *envp[])
 	char *bufc;
 	int term;
 	const char *deim;
+	char **hargv;
 
 	(void)argc;
 
@@ -54,7 +55,7 @@ int main(int argc, char *argv[], char *envp[])
 			continue;
 		}
 		_strcpy(bufc, buf);
-		char **hargv = _tokenizeinput(buf, delim);
+		*hargv = _tokenizeinput(buf, delim);
 
 		if (hargv == NULL)
 		{
