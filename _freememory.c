@@ -18,7 +18,7 @@ void _freememory(char *buf, char *bufc, char **hargv, char *path)
 	if (hargv != NULL)
 	{
 		for (j = 0; hargv[j]; j++)
-			free(hargv[j];
+			free(hargv[j]);
 		free(hargv);
 	}
 
