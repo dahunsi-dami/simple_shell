@@ -5,7 +5,7 @@
  *
  * Return: return the path of the file or NULL.
  */
-char *_checkfileexists(const char *filename)
+char *_checkfileexists(char *filename)
 {
 	struct stat st;
 	char *path;

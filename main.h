@@ -10,7 +10,7 @@
 #include <sys/wait.h>
 
 void _write(char *s);
-void _prompt_user(void);
+void _promptuser(void);
 ssize_t _readinput(int term, char **buf, size_t *n);
 char **_tokenizeinput(char *buf, const char *delim);
 void _exitshell(char *buf);
@@ -22,7 +22,7 @@ int _strncmp(const char *str1, const char *str2, size_t n);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *_executecommand(char **hargv, char *envp[]);
-char *_checkfileexists(const char *filename);
+char *_checkfileexists(char *filename);
 char *_extractpathfromenv(char *envp[]);
 int _splitstring(char *str, char *delimiter, char ***tokens);
 int _splitpath(char *path, char ***directories);

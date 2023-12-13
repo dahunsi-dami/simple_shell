@@ -62,7 +62,7 @@ int main(int argc, char *argv[], char *envp[])
 			perror("Tokenization failed");
 			continue;
 		}
-		path = _excute_command(hargv, envp);
+		path = _executecommand(hargv, envp);
 		_freememory(buf, bufc, hargv, path);
 	}
 	return (0);
