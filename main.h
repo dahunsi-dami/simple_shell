@@ -15,7 +15,7 @@ int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_executecommand(char **hargv, char *envp[]);
 char *_checkcommandindirectory(const char *directory, const char *command);
-char *searchcommandinpath
+char *searchcommandinpath(const char *command, const char *path);
 int main(int ac, char *av[]);
 
 #endif
