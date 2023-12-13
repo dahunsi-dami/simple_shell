@@ -14,12 +14,12 @@ int main(int argc, char *argv[], char *envp[])
 	size_t n;
 	char *bufc;
 	int term;
-	const char *deim;
+	const char *delim;
 	char **hargv;
 
 	(void)argc;
 
-	delim = "\n";
+	delim = " \n";
 	term = isatty(STDIN_FILENO);
 
 	while (1)
@@ -50,7 +50,8 @@ int main(int argc, char *argv[], char *envp[])
 		bufc = malloc(sizeof(char) * (nchar + 1));
 		if (bufc == NULL)
 		{
-			free(buf, bufc, NULL, NULL);
+			free(buf, bufc);
+			free(NULL, NULL);
 			perror("Buffer copying failed");
 			continue;
 		}
@@ -59,7 +60,8 @@ int main(int argc, char *argv[], char *envp[])
 
 		if (hargv == NULL)
 		{
-			free(buf, bufc, NULL, NULL);
+			free(buf, bufc);
+			free(NULL, NULL);
 			perror("Tokenization failed");
 			continue;
 		}
