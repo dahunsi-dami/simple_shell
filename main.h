@@ -24,5 +24,6 @@ char *_findexecutableinpath(char *directories[], const char *filename);
 void _cleanupmemory(char *path, char *directories[]);
 char *_checkcmdexists(char **argv, char *envp[]);
 int main(int argc, char *argv[], char *envp[]);
+int _strncmp(const char *str1, const char *str2, size_t n);
 
 #endif
