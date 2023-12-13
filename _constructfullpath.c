@@ -6,7 +6,7 @@
  *
  * Return: returns the full path.
  */
-char *_constructfullpath(const char *directory, const char *filename)
+char *_constructfullpath(char *directory, char *filename)
 {
 	char *path;
 
