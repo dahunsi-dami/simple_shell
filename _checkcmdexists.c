@@ -8,7 +8,7 @@
  */
 char *_checkcmdexists(char **argv, char *envp[])
 {
-	int j, k, ntokens;
+	int k;
 	char *_envp, *_onvp;
 	char *_envpc, *_onvpc;
 	char *path, *opath, *fpath;
