@@ -26,5 +26,6 @@ int main(int argc, char *argv[], char *envp[]);
 char *_mallocchar(char *_envp, char *_envpc);
 char *_appendtopath(char **tokens, char *path, char *argv[]);
 char *_checkcmdexists(char **argv, char *envp[]);
+char *_findpathenv(char *envp[], char *_envp)
 
 #endif
