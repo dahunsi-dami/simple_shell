@@ -15,7 +15,7 @@ int main(int argc, char *argv[], char *envp[])
 	char **hargv;
 	int i, term;
 	(void)argc;
-	delim = "\n";
+	delim = " \n";
 
 	term = isatty(STDIN_FILENO);
 	while (1)
