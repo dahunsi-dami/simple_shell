@@ -4,6 +4,7 @@
  * _executecommand - executes a command using fork and execve.
  * @hargv: array of arguments for the command.
  * @envp: environment variables.
+ * @argv: 1D array containg command line arguments.
  *
  * Return: the path of the executed command.
  */
