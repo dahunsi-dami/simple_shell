@@ -10,7 +10,7 @@ char *_appendtopath(char **tokens, char *path, char *argv[])
 {
 	int l, m, tlen, alen;
 
-	m = 0;
+	l = 0;
 	tlen = _strlen(tokens[l]);
 	alen = _strlen(argv[0]);
 
