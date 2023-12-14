@@ -11,7 +11,7 @@ char **_tokenizeinput(char *buf, char *bufc, const char *delim)
 {
 	char *token;
 	char **tokens;
-	int ntoken = 0, i = 0, j;
+	int ntoken = 0, i, j;
 
 	token = strtok(buf, delim);
 	while (token != NULL)
@@ -19,6 +19,8 @@ char **_tokenizeinput(char *buf, char *bufc, const char *delim)
 		ntoken++;
 		token = strtok(NULL, delim);
 	}
+	if (ntoken == 0)
+		return (NULL);
 	ntoken++;
 	tokens = malloc(sizeof(char *) * ntoken);
 	if (tokens == NULL)
@@ -28,7 +30,7 @@ char **_tokenizeinput(char *buf, char *bufc, const char *delim)
 		return (NULL);
 	}
 	token = strtok(bufc, delim);
-	while (token != NULL)
+	for (i = 0; token != NULL; i++)
 	{
 		tokens[i] = malloc(sizeof(char) * (strlen(token) + 1));
 		if (tokens[i] == NULL)
@@ -42,7 +44,6 @@ char **_tokenizeinput(char *buf, char *bufc, const char *delim)
 		}
 		_strcpy(tokens[i], token);
 		token = strtok(NULL, delim);
-		i++;
 	}
 	tokens[i] = NULL;
 	free(bufc);
