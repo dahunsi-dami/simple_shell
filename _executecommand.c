@@ -7,12 +7,9 @@
  *
  * Return: the path of the executed command.
  */
-char *_executecommand(char **hargv, char *envp[])
+void _executecommand(char **hargv, char *envp[], char *argv[])
 {
-	char *path;
 	int fd;
-
-	path = _checkcmdexists(hargv, envp);
 
 	fd = fork();
 
@@ -24,13 +21,12 @@ char *_executecommand(char **hargv, char *envp[])
 
 	if (fd == 0)
 	{
-		if (execve(path, hargv, envp) == -1)
+		if (execve(hargv[0], hargv, envp) == -1)
 		{
-			perror(hargv[0]);
+			perror(argv[0]);
 			exit(EXIT_FAILURE);
 		}
 	}
 
 	wait(NULL);
-	return (path);
 }
