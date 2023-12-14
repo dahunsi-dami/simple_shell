@@ -34,10 +34,7 @@ int main(int argc, char *argv[], char *envp[])
 		_strcpy(bufc, buf);
 		hargv = _tokenizeinput(buf, bufc, delim);
 		if (hargv == NULL)
-		{
-			perror(argv[0]);
 			continue;
-		}
 		else
 		{
 			_executecommand(hargv, envp, argv);
