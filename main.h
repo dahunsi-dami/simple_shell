@@ -16,6 +16,8 @@ int _putchar(char c);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 int _strncmp(const char *str1, const char *str2, size_t n);
+ssize_t _readinput(int term, char **buf, size_t *n);
+void _promptuser(void);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void _executecommand(char **hargv, char *envp[], char *argv[]);

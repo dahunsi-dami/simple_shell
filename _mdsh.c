@@ -13,17 +13,17 @@ int main(int argc, char *argv[], char *envp[])
 	size_t n;
 	const char *delim;
 	char **hargv;
-	int i;
+	int i, term;
 	(void)argc;
 	delim = "\n";
 
+	term = isatty(STDIN_FILENO);
 	while (1)
 	{
 		buf = NULL;
 		bufc = NULL;
 
-		_write("hsh > ");
-		nchar = getline(&buf, &n, stdin);
+		nchar = _readinput(term, &buf, &n);
 		_checkgetfail(nchar, buf, argv, stdin);
 		bufc = malloc(sizeof(char) * (nchar + 1));
 		if (bufc == NULL)
