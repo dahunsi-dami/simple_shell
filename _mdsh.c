@@ -13,9 +13,8 @@ int main(int argc, char *argv[], char *envp[])
 	size_t n;
 	const char *delim;
 	char **hargv;
-
+	int i;
 	(void)argc;
-
 	delim = "\n";
 
 	while (1)
@@ -42,6 +41,8 @@ int main(int argc, char *argv[], char *envp[])
 		else
 		{
 			_executecommand(hargv, envp, argv);
+			for (i = 0; hargv[i] != NULL; i++)
+				free(hargv[i]);
 			free(hargv);
 		}
 		free(buf);

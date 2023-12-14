@@ -24,6 +24,7 @@ char **_tokenizeinput(char *buf, char *bufc, const char *delim)
 	if (tokens == NULL)
 	{
 		perror("malloc");
+		free(tokens);
 		return (NULL);
 	}
 	token = strtok(bufc, delim);
