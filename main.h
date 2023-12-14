@@ -21,7 +21,7 @@ void _promptuser(void);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void _executecommand(char **hargv, char *envp[], char *argv[]);
+char *_isabspath(char **argv, char *path);
 int main(int argc, char *argv[], char *envp[]);
-int _strncmp(const char *str1, const char *str2, size_t n);
 
 #endif
