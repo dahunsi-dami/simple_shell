@@ -11,6 +11,9 @@
 void _executecommand(char **hargv, char *envp[], char *argv[])
 {
 	int fd;
+	char *path;
+
+	path = _checkcmdexists(hargv, envp);
 
 	fd = fork();
 
@@ -22,7 +25,7 @@ void _executecommand(char **hargv, char *envp[], char *argv[])
 
 	if (fd == 0)
 	{
-		if (execve(hargv[0], hargv, envp) == -1)
+		if (execve(path, hargv, envp) == -1)
 		{
 			perror(argv[0]);
 			exit(EXIT_FAILURE);
@@ -30,4 +33,7 @@ void _executecommand(char **hargv, char *envp[], char *argv[])
 	}
 
 	wait(NULL);
+
+	if (path != NULL)
+		free(path);
 }
