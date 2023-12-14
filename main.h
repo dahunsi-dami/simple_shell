@@ -23,5 +23,6 @@ char *_strcat(char *dest, char *src);
 void _executecommand(char **hargv, char *envp[], char *argv[]);
 char *_isabspath(char **argv, char *path);
 int main(int argc, char *argv[], char *envp[]);
+char *_mallocchar(char *_envp, char *_envpc, int n);
 
 #endif
