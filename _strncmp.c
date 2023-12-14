@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
   * _strncmp - compares the first n characters of two strings.
   * @str1: first string
@@ -7,8 +6,7 @@
   * @n: size
   * Return: returns null
   */
-
-int _strncmp(const char *str1, const char *str2, size_t n)
+int _strncmp(char *str1, char *str2, size_t n)
 {
 	size_t i;
 
