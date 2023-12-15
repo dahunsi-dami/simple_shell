@@ -24,7 +24,7 @@ void _checkgetfail(ssize_t nchar, char *buf, char *argv[], FILE *stream)
 			exit(EXIT_FAILURE);
 		}
 	}
-	if (_strcmp(buf, "exit") == 0)
+	if (_strcmp(buf, "exit\n") == 0)
 	{
 		free(buf);
 		exit(EXIT_SUCCESS);
