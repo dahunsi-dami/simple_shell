@@ -27,22 +27,18 @@ int main(int argc, char *argv[], char *envp[])
 		_checkgetfail(nchar, buf, argv, stdin);
 		bufc = malloc(sizeof(char) * (nchar + 1));
 		if (bufc == NULL)
-		{
-			free(buf);
+		{	free(buf);
 			perror(argv[0]);
-			continue;
-		}
+			continue; }
 		_strcpy(bufc, buf);
 		hargv = _tokenizeinput(buf, bufc, delim);
 		if (hargv == NULL)
 			continue;
 		else
-		{
-			_executecommand(hargv, envp, argv);
+		{	_executecommand(hargv, envp, argv);
 			for (i = 0; hargv[i] != NULL; i++)
 				free(hargv[i]);
-			free(hargv);
-		}
+			free(hargv); }
 		free(buf);
 	}
 	return (0);
