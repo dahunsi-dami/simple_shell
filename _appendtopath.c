@@ -43,9 +43,9 @@ char *_appendtopath(char **tokens, char *path, char *argv[])
 			_strcat(path, argv[0]);
 		}
 		if (access(path, F_OK) == 0)
-			break;
+			return (path);
 		free(path);
 		path = NULL;
 	}
-	return (path);
+	return (NULL);
 }
