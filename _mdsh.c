@@ -28,6 +28,7 @@ int main(int argc, char *argv[], char *envp[])
 		bufc = malloc(sizeof(char) * (nchar + 1));
 		if (bufc == NULL)
 		{
+			free(buf);
 			perror(argv[0]);
 			continue;
 		}
