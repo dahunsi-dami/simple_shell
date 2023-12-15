@@ -15,36 +15,30 @@ char **_tokenizeinput(char *buf, char *bufc, const char *delim)
 
 	token = strtok(buf, delim);
 	while (token != NULL)
-	{
-		ntoken++;
-		token = strtok(NULL, delim);
-	}
+	{	ntoken++;
+		token = strtok(NULL, delim); }
 	if (ntoken == 0)
-		return (NULL);
+	{	free(buf);
+		free(bufc);
+		return (NULL); }
 	ntoken++;
 	tokens = malloc(sizeof(char *) * ntoken);
 	if (tokens == NULL)
-	{
-		perror("malloc");
+	{	perror("malloc");
 		free(tokens);
-		return (NULL);
-	}
+		return (NULL); }
 	token = strtok(bufc, delim);
 	for (i = 0; token != NULL; i++)
-	{
-		tokens[i] = malloc(sizeof(char) * (strlen(token) + 1));
+	{	tokens[i] = malloc(sizeof(char) * (strlen(token) + 1));
 		if (tokens[i] == NULL)
-		{
-			perror("malloc");
+		{	perror("malloc");
 			for (j = i; j >= 0; j--)
 				free(tokens[j]);
 			free(tokens);
 			free(bufc);
-			return (NULL);
-		}
+			return (NULL); }
 		_strcpy(tokens[i], token);
-		token = strtok(NULL, delim);
-	}
+		token = strtok(NULL, delim); }
 	tokens[i] = NULL;
 	free(bufc);
 	return (tokens);
