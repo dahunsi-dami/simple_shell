@@ -17,7 +17,6 @@ char *_checkcmdexists(char **argv, char *envp[])
 
 	_envp = NULL;
 	penv = NULL;
-	ntokens = 0;
 	sc = ":";
 	path = NULL;
 	_envpc = NULL;
