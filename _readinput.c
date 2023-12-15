@@ -11,5 +11,5 @@ ssize_t _readinput(int term, char **buf, size_t *n)
 {
 	if (term != 0)
 		_promptuser();
-	return (getline(buf, n, stdin));
+	return (_getline(buf, n, stdin));
 }
