@@ -23,6 +23,5 @@ char *_findpathenv(char *envp[], char *_envp)
 			break;
 		}
 	}
-
 	return (_envp);
 }
