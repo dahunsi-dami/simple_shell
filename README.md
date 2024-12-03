@@ -1,8 +1,13 @@
-# ALX simple shell project
+# C- Simple Shell
+**`An ALX Africa Software Engineering Program project.`**<br><br>
 
 ## Project Overview
 
-This is a collaborative project to create a custom `bash` shell in C! This initiative aims to enhance our understanding of C programming and explore the intricacies of building a fundamental yet powerful shell used for executing user's commands.
+This is a collaborative project to build a custom `bash` shell in C, to simulate basic schell functionality!
+
+It allows users to execute commands, manage paths, handle user input, and perform memory management operations.
+
+The goal is to deepen understanding of C programming and explore the intricacies of shell development.
 
 ## Project Contributors
 
