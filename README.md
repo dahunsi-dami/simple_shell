@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-This is a collaborative project to build a custom `bash` shell in C, to simulate basic schell functionality!
+This is a collaborative project to build a custom `bash` shell in C, to simulate basic shell functionality!
 
 It allows users to execute commands, manage paths, handle user input, and perform memory management operations.
 
