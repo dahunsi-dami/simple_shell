@@ -23,8 +23,12 @@ The goal is to deepen understanding of C programming and explore the intricacies
 
 ## Functions Overview
 
-Here is a table summarizing the key functions used in this project:
+We built several functions from scratch, each prefixed with an underscore `_`, to handle different aspects of the custom `simple_shell` functionality.
+
+Here is a table summarizing the key functions used in this project.
+
+*Functions we built from scratch start with the underscore `_` character.*
 
 | Function Name 		| Description 													|
 | ----------------------|---------------------------------------------------------------|
-| `sample function`   | Function that does this and that   |
+| `_write`   | Writes a given string to the standard output (stdout)   |
