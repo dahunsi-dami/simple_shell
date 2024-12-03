@@ -46,5 +46,47 @@ Here is a table summarizing the key functions used in this project.
 | `_strcat`   | Concatenates the string pointed to by `src` to the end of the string pointed to by `dest`, and then returns a pointer to `dest`.   |
 | `_executecommand`   | Executes a command by forking a new process, checks if the command exists using `_checkcmdexists`, and then runs the command using `execve`. It waits for the command to finish and fress the allocated memory for the command path.   |
 | `_isabspath`   | Checks if the given path (the 1st argument in `argv`) is absolute using the `stat` function. If the path exists, it allocates memory for it, copies the path into the allocated memory, and returns it; otherwise, it returns `NULL`.   |
-| `_mallocchar`   | Dynamically allocates memory for a string copy based on the length of the string `_envp`. If memory allocation is succesful, it returns the pointer to the newly allocated memory; otherwise, it frees `_envp` and returns `NULL` after printing an error message.   |
-| `_write`   | Writes a given string to the standard output (stdout).   |
+| `_mallocchar`   | Allocates memory for a copy of the string `_envp` and returns a pointer to the allocated memory, or `NULL` if allocation fails, after freeing `_envp` and printing an error message.   |
+| `_appendtopath`   | Attempts to find a valid directory for a relative path by appending the command to each token in the parsed array and checking if the resulting path exists.   |
+| `_checkcmdexists`   | Checks if a command exists as an executable either by verifying its absolute path or searching the directories listed in the `PATH` environment variable.   |
+| `_findpathenv`   | Searches the environment variables for the `PATH` value, allocates memory for it, and returns the path or `NULL` if not found.   |
+
+## Compilation
+
+The shell is compiled this way:
+`gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
+
+## Testing
+
+It works like this in interactive mode:
+```
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+```
+
+But also in non-interactive mode like this:
+```
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+```
+
+## Requirements
+
+- The code uses the `Betty` style. It's checked using `betty-style.pl` and `betty-doc.pl`.
+- No more than 5 functions per file.
+- All header files are include guarded.
+- System calls are used only when we need to.
+- There, ideally, should be no memory leaks.
